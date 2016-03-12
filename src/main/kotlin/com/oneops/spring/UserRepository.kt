@@ -22,7 +22,6 @@ import org.springframework.data.repository.CrudRepository
  *
  * @author Suresh
  */
-
 interface UserRepository : CrudRepository<User, Long> {
 
     fun findByFirstName(firstName: String): List<User>

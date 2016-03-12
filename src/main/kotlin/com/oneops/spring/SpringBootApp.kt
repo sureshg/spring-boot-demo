@@ -43,7 +43,6 @@ open class SpringBootApp {
 
     @Bean
     open fun init(repo: UserRepository) = CommandLineRunner {
-
         for (i in 0..18) {
             repo.save(User(firstName = adj.random, lastName = sur.random))
         }

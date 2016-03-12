@@ -23,7 +23,6 @@ import org.springframework.web.bind.annotation.*
  *
  * @author Suresh
  */
-
 @RestController
 class UserController {
 
