@@ -1,0 +1,1 @@
+INSERT INTO User (first_name, last_name) VALUES ('awesome','oneops');
