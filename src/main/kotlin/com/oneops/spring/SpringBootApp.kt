@@ -43,6 +43,7 @@ open class SpringBootApp {
 
     @Bean
     open fun init(repo: UserRepository) = CommandLineRunner {
+        log.info("Initializing the SpringBoot app. Args: ${it.joinToString(",")}")
         for (i in 0..18) {
             repo.save(User(firstName = adj.random, lastName = sur.random))
         }
@@ -52,8 +53,14 @@ open class SpringBootApp {
 
 val rand = Random(System.nanoTime())
 
+/**
+ * Extension functions.
+ */
 val List<String>.random: String get() = this[rand.nextInt(size)]
 
+/**
+ * Bootstrap the Application.
+ */
 fun main(args: Array<String>) {
     SpringApplication.run(SpringBootApp::class.java, *args)
 }
