@@ -15,21 +15,54 @@
  */
 package com.oneops.spring
 
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.oneops.spring.repository.UserRepository
+import org.junit.After
+import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.springframework.boot.test.SpringApplicationConfiguration
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
+import org.slf4j.LoggerFactory
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.test.context.junit4.SpringRunner
+import org.springframework.web.context.WebApplicationContext
 
 /**
  * Spring boot application test
  *
  * @author Suresh
  */
-@RunWith(SpringJUnit4ClassRunner::class)
-@SpringApplicationConfiguration(classes = arrayOf(SpringBootApp::class))
-class SpringBootSimpleApplicationTests {
+@RunWith(SpringRunner::class)
+@SpringBootTest
+class SpringBootAppTests {
+
+    /**
+     * Logger instance
+     */
+    companion object {
+        val log = LoggerFactory.getLogger(SpringBootAppTests::class.java)
+    }
+
+    @Autowired
+    lateinit var mapper: ObjectMapper
+
+    @Autowired
+    lateinit var context: WebApplicationContext
+
+    @Autowired
+    lateinit var userRepo: UserRepository
+
+    @Before
+    fun setup() {
+        log.info("***** Test setup *****")
+    }
 
     @Test
     fun contextLoads() {
+    }
+
+    @After
+    fun teardown() {
+        log.info("***** Test Teardown *****")
     }
 }

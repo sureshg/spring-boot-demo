@@ -1,7 +1,7 @@
 logging:
    level: trace
 
-#logging.level:
+# logging.level:
 #    org.springframework: ERROR
 #    org.hibernate.SQL: ERROR
 

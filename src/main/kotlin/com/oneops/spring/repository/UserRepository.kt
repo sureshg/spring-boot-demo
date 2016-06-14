@@ -13,21 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.oneops.spring
+package com.oneops.spring.repository
 
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType.AUTO
-import javax.persistence.Id
+import com.oneops.spring.domain.User
+import org.springframework.data.repository.CrudRepository
 
 /**
- * User entity class
+ * User Spring Data repository.
  *
  * @author Suresh
  */
-@Entity
-data class User(
-        @Id @GeneratedValue(strategy = AUTO)
-        var id: Long = 0,
-        var firstName: String = "",
-        var lastName: String = "")
+interface UserRepository : CrudRepository<User, Long> {
+
+    fun findByFirstName(firstName: String): List<User>
+
+    fun findByLastName(lastName: String): List<User>
+}

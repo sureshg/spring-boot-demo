@@ -1,19 +1,17 @@
-/**
- * Spring boot demo build file.
- */
 buildscript {
     ext {
-        springBootVersion = '1.3.3.RELEASE'
-        kotlinVersion = '1.0.1-2'
-        jacksonKotlin = '2.6.5-2'
-        gradleRelVersion = '2.12'
+        springBootVersion = '1.4.0.M3'
+        kotlinVersion = '1.0.2'
+        jacksonKotlin = '2.7.4'
+        gradleRelVersion = '2.13'
     }
     repositories {
         mavenCentral()
+        maven { url "https://repo.spring.io/milestone" }
     }
     dependencies {
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion")
     }
 }
 
@@ -22,8 +20,9 @@ apply plugin: 'idea'
 apply plugin: 'kotlin'
 apply plugin: 'spring-boot'
 
+
 jar {
-    baseName = 'springbootsimple'
+    baseName = 'spring-boot-demo'
     version = '1.0'
 }
 
@@ -31,26 +30,28 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
-    maven {
-        url "https://maven-central.storage.googleapis.com"
-    }
     mavenCentral()
+    maven { url "https://repo.spring.io/milestone" }
 }
 
 springBoot {
-    mainClass = 'com.oneops.spring.SpringBootAppKt'
+    mainClass = 'com.oneops.spring.SpringBootApp'
 }
 
 dependencies {
-    compile("org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}")
+    compile("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
     compile('org.springframework.boot:spring-boot-starter-web')
-    compile("org.springframework.boot:spring-boot-starter-data-jpa")
-    compile("com.fasterxml.jackson.module:jackson-module-kotlin:${jacksonKotlin}")
-    compile("com.h2database:h2")
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+    compile('org.springframework.boot:spring-boot-starter-remote-shell')
+    compile("com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonKotlin")
+    runtime('com.h2database:h2')
+    runtime('org.postgresql:postgresql')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
 task wrapper(type: Wrapper) {
     gradleVersion = gradleRelVersion
 }
+
 
