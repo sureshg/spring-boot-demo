@@ -55,6 +55,7 @@ class SpringBootAppTests {
     @Before
     fun setup() {
         log.info("***** Test setup *****")
+        log.info("Json Mapper: $mapper")
     }
 
     @Test
