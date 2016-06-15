@@ -23,3 +23,13 @@ API End Points
  * Find by first name - [http://localhost:8080/first/{name}](http://localhost:8080/first/awesome)
  * Find by last name - [http://localhost:8080/last/{name}](http://localhost:8080/last/oneops)
  * Find by name - [http://localhost:8080/last?name={name}](http://localhost:8080/last?name=oneops)
+
+
+Remote Shell
+------------
+
+  By default the remote shell will listen for connections on port `2000`. The default credentials is `oneops/oneops`.
+
+```
+$ ssh -p 2000 oneops@localhost
+```
