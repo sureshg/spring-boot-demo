@@ -23,6 +23,10 @@ spring:
   jackson.serialization:
     INDENT_OUTPUT: true
 
+management:
+  shell.auth.simple.user:
+          name: oneops
+          password: oneops
 
 banner:
   location: classpath:oneops-banner.txt
