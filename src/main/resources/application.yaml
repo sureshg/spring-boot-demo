@@ -25,8 +25,8 @@ spring:
 
 management:
   shell.auth.simple.user:
-          name: oneops
-          password: oneops
+    name: oneops
+    password: oneops
 
 banner:
   location: classpath:oneops-banner.txt
