@@ -25,10 +25,7 @@ import org.springframework.web.bind.annotation.*
  * @author Suresh
  */
 @RestController
-class UserController {
-
-    @Autowired
-    lateinit var repo: UserRepository
+class UserController @Autowired constructor(val repo: UserRepository) {
 
     @RequestMapping("/", method = arrayOf(RequestMethod.GET))
     fun findAll() = repo.findAll()
