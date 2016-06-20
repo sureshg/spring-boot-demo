@@ -43,14 +43,11 @@ class SpringBootAppTests {
         val log = LoggerFactory.getLogger(SpringBootAppTests::class.java)
     }
 
-    @Autowired
-    lateinit var mapper: ObjectMapper
+    @Autowired lateinit var mapper: ObjectMapper
 
-    @Autowired
-    lateinit var context: WebApplicationContext
+    @Autowired lateinit var context: WebApplicationContext
 
-    @Autowired
-    lateinit var userRepo: UserRepository
+    @Autowired lateinit var userRepo: UserRepository
 
     @Before
     fun setup() {
