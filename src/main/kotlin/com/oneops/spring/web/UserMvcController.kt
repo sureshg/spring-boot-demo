@@ -19,11 +19,17 @@ class UserMvcController @Autowired constructor(val repo: UserRepository) {
 
     val log = LoggerFactory.getLogger(UserMvcController::class.java)
 
-    @RequestMapping("users")
+    @RequestMapping(USERS)
     fun users(@RequestParam(name = "filter", required = false, defaultValue = "") filter: String, model: Model) = let {
-        log.info("Getting all users, filter: $filter")
         val users = repo.findAll().filter { it.lastName.startsWith(filter) }
         model.addAttribute("users", users)
-        "users"
+        log.info("Found :${users.size} users with filter: $filter")
+        USERS
+    }
+
+    companion object {
+        const val USERS = "users"
     }
 }
+
+

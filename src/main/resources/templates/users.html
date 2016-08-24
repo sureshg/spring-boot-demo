@@ -6,8 +6,39 @@
     <title>Spring Boot Demo App</title>
     <meta name="description" content="Spring Boot Demo App"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <style>
+        html {
+            color: #888;
+            display: table;
+            font-family: sans-serif;
+            height: 100%;
+            text-align: center;
+            width: 100%;
+        }
+
+        div.content {
+            position: relative;
+            top: 45%;
+            left: 45%;
+            margin: 1px;
+            text-align: left;
+        }
+
+        h1 {
+            color: #555;
+            font-size: 2em;
+            font-weight: 400;
+        }
+    </style>
 </head>
 <body>
-<p th:text="'Hello, Kotlin!'"/>
+<h1>Users</h1>
+<div th:each="u : ${users}">
+    <div class="content">
+        <b th:text="${u.id}">ID</b> -
+        <span th:text="${u.firstName}">First Name </span>
+        <span th:text="${u.LastName}">Last Name</span>
+    </div>
+</div>
 </body>
 </html>

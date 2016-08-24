@@ -8,6 +8,8 @@ logging:
 server:
   port: 8080
   address: 0.0.0.0
+  compression:
+    enabled: true
 
 
 spring:
@@ -27,9 +29,30 @@ management:
   shell.auth.simple.user:
     name: oneops
     password: oneops
+  context-path: /admin
+
+endpoints:
+  env:
+    enabled: false
+  beans:
+    enabled: false
+
+info:
+  build:
+    name: ${name}
+    description: ${description}
+    version: ${version}
+    spring-boot-version: ${springBootVersion}
+    kotlin-version: ${kotlinVersion}
+    java: \${java.version}
+    java-vendor: \${java.vendor}
+    os-name: \${os.name}
+    os-arch: \${os.arch}
+    os-version: \${os.version}
 
 banner:
   location: classpath:oneops-banner.txt
+
 
 
 
